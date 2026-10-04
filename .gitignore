@@ -1,0 +1,46 @@
+# Environment variables (secrets)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build artifacts
+build/
+dist/
+*.egg
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+~/.*vovy*/
+~/.vovy/
+
+# py2app / py2exe
+*.app/
+
+# Tool / environment files (not part of the project)
+.codegraph
+.omo/
+.poolside/
+.idea/
+.vscode/
+
+# Swift Package Manager
+.build/
+

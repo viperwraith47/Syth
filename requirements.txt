@@ -1,0 +1,28 @@
+# Vovy — macOS Desktop Agent with Apple Glass UI
+# Made by Viperwraith47 — https://github.com/viperwraith47
+#
+# Install: pip3 install -r requirements.txt
+# On macOS you may also need: xattr -rd com.apple.quarantine /Applications/Vovy.app
+#                            (after packaging with py2app)
+
+# ── Core Automation ───────────────────────────────────────────
+pyautogui>=0.9.54            # Mouse, keyboard, screenshot control
+pillow>=10.4.0               # Image capture & base64 encoding (PIL)
+
+# ── AI / Vision API ────────────────────────────────────────────
+requests>=2.32.3             # HTTP client for OpenAI-compatible endpoints
+
+# ── UI Framework ───────────────────────────────────────────────
+PySide6>=6.7.2              # Qt-based native macOS window with transparency & blur
+numpy>=1.26.4               # Array operations for blur processing & coordinates
+
+# ── Screen Information ─────────────────────────────────────────
+screeninfo>=0.8              # Primary/secondary monitor geometry detection
+
+# ── Optional — Native macOS Integration (PyObjC) ───────────────
+# Uncomment if you want true native NSVisualEffectView vibrancy:
+# pyobjc-framework-Quartz>=10.2
+# pyobjc-framework-Cocoa>=10.2
+
+# ── Optional — App Packaging ───────────────────────────────────
+# py2app>=0.29               # Package as .app bundle (pip install py2app)
