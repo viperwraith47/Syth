@@ -1,8 +1,8 @@
-# Vovy — macOS Desktop Agent with Apple Glass UI
+# Syth — macOS Desktop Agent with Apple Glass UI
 # Made by Viperwraith47 — https://github.com/viperwraith47
 #
 # Install: pip3 install -r requirements.txt
-# On macOS you may also need: xattr -rd com.apple.quarantine /Applications/Vovy.app
+# On macOS you may also need: xattr -rd com.apple.quarantine /Applications/Syth.app
 #                            (after packaging with py2app)
 
 # ── Core Automation ───────────────────────────────────────────

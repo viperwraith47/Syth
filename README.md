@@ -1,4 +1,4 @@
-# Vovy
+# Syth
 
 > A macOS desktop agent with an **Apple Glass** (absolute glassmorphism) user interface. Continuously captures the screen, sends screenshots to a local or external Vision API, parses LLM-returned JSON actions, and executes them via `pyautogui` with human-like easing — all orchestrated through a modular Python architecture with Google Stitch MCP tool routing.
 
@@ -20,7 +20,7 @@
 - **Local AI Server Connection** — routes payloads to `http://localhost:11434/v1` (Ollama) or external OpenAI-compatible gateways; dynamic model toggling between Llama-3.2-Vision, Qwen2.5-VL, and GPT-4 families
 - **Google Stitch MCP Integration** — exposes system functions as structured tools (view file, list directory, execute command, take screenshot, etc.) so the LLM can explicitly request filesystem and system operations
 - **Resilient Automation Safety** — coordinate bounds checking, hardware fail-safe (mouse to top-left corner instantly terminates the loop), and error logging for missing macOS Accessibility & Screen Recording permissions
-- **Viperwraith47 Apple Liquid Glass reference** — SwiftUI templates in `Sources/Vovy/LiquidGlass/` and `Sources/Vovy/Credits/` for the canonical Swift implementation
+- **Viperwraith47 Apple Liquid Glass reference** — SwiftUI templates in `Sources/Syth/LiquidGlass/` and `Sources/Syth/Credits/` for the canonical Swift implementation
 
 ## Requirements
 
@@ -71,7 +71,7 @@ python3 main.py --verbose
 
 ## AI Models & API Keys
 
-Vovy supports multiple vision-capable AI backends. Configure API keys in a
+Syth supports multiple vision-capable AI backends. Configure API keys in a
 local `.env` file (automatically loaded at startup, gitignored):
 
 ```dotenv
@@ -112,7 +112,7 @@ OLLAMA_API_KEY=ollama
 ├── config.py                         # Centralized configuration
 ├── utils.py                          # Logging, permissions, coordinates, easing
 └── Sources/
-    └── Vovy/
+    └── Syth/
         ├── LiquidGlass/              # R3 — Swift Liquid Glass reference
         │   ├── LiquidGlassBackground.swift
         │   └── GlassModifiers.swift

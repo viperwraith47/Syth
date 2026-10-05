@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-main.py — Vovy Application Entrypoint & UI Orchestration.
+main.py — Syth Application Entrypoint & UI Orchestration.
 
-Vovy is a macOS desktop agent with an Apple Glass (glassmorphism) user
+Syth is a macOS desktop agent with an Apple Glass (glassmorphism) user
 interface. It continuously captures the screen, sends screenshots to a
 local or external OpenAI-compatible Vision API, parses the LLM's JSON
 actions, and executes them via pyautogui with human-like easing.
@@ -52,7 +52,7 @@ from glass_ui import (
 # ── Application Class ──────────────────────────────────────────────────────
 
 
-class VovyApp:
+class SythApp:
     """
     Main application orchestrator.
 
@@ -98,7 +98,7 @@ class VovyApp:
         # ── Logging ──────────────────────────────────────────────
         self.logger = setup_logging(self.config.log_dir, level=self._log_level)
         self.logger.info("=" * 60)
-        self.logger.info(f"Vovy v{self.config.version}")
+        self.logger.info(f"Syth v{self.config.version}")
         self.logger.info(f"Made by Viperwraith47 — https://github.com/viperwraith47")
         self.logger.info(f"Platform: {sys.platform} | Python: {sys.version.split()[0]}")
         self.logger.info(f"UI backend: {glass_ui_backend_name()}")
@@ -163,7 +163,7 @@ class VovyApp:
         self._vision_thread = threading.Thread(
             target=self.vision_agent.run,
             daemon=True,
-            name="Vovy-VisionLoop",
+            name="Syth-VisionLoop",
         )
         self._vision_thread.start()
         self.logger.info("Vision loop started in background thread")
@@ -287,7 +287,7 @@ class VovyApp:
             return
         self._shutting_down = True
 
-        self.logger.info("Shutting down Vovy...")
+        self.logger.info("Shutting down Syth...")
 
         # Stop vision loop
         self._stop_vision_loop()
@@ -309,7 +309,7 @@ class VovyApp:
         )
 
         self.logger.info(
-            "Vovy shutdown complete. "
+            "Syth shutdown complete. "
             "Made by Viperwraith47 — https://github.com/viperwraith47"
         )
 
@@ -333,9 +333,9 @@ def glass_ui_backend_name() -> str:
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        prog="vovy",
+        prog="Syth",
         description=(
-            "Vovy — macOS desktop agent with Apple Glass UI. "
+            "Syth — macOS desktop agent with Apple Glass UI. "
             "Continuously captures the screen, sends to a Vision API, "
             "and executes LLM-returned actions via pyautogui. "
             "Made by Viperwraith47."
@@ -396,7 +396,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     """Application entry point."""
     args = parse_args()
-    app = VovyApp(args)
+    app = SythApp(args)
     try:
         return app.run()
     except Exception as exc:

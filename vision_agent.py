@@ -126,7 +126,7 @@ class VisionAgent:
         self._check_permissions()
 
         # Thread pool for non-blocking tool execution
-        self._executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="Vovy-Tool")
+        self._executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="Syth-Tool")
 
         self.logger.info(
             f"VisionAgent initialized — screen: {self._screen_w}×{self._screen_h}, "
@@ -209,7 +209,7 @@ class VisionAgent:
         import os
         import subprocess
 
-        tmp_path = os.path.join(tempfile.gettempdir(), "vovy_capture.png")
+        tmp_path = os.path.join(tempfile.gettempdir(), "syth_capture.png")
         try:
             subprocess_result = subprocess.run(
                 ["screencapture", "-x", "-R0,0,1024,768", tmp_path],

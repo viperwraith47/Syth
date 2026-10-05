@@ -27,7 +27,7 @@ from typing import Any, Optional
 # tools are actually invoked, and may not be installed in a headless
 # test environment.
 
-logger = logging.getLogger("Vovy.MCP")
+logger = logging.getLogger("Syth.MCP")
 
 # ── MCP Tool Base Classes ──────────────────────────────────────
 
@@ -681,7 +681,7 @@ class ToolRegistry:
     """
 
     def __init__(self, logger: Optional[logging.Logger] = None):
-        self._logger = logger or logging.getLogger("Vovy.MCP")
+        self._logger = logger or logging.getLogger("Syth.MCP")
         self._tools: dict[str, MCPTool] = {}
         self._register_default_tools()
 
@@ -868,8 +868,8 @@ class ToolRegistry:
             "protocolVersion": "2024-11-5.0",
             "capabilities": {"tools": tools},
             "serverInfo": {
-                "name": "vovy-mcp-tools",
+                "name": "Syth-mcp-tools",
                 "version": "1.0.0",
-                "description": "MCP tool server for the Vovy desktop agent (Made by Viperwraith47)",
+                "description": "MCP tool server for the syth desktop agent (Made by Viperwraith47)",
             },
         }

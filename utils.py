@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-utils.py — Shared utilities for Vovy.
+utils.py — Shared utilities for Syth.
 
 Provides:
   • Structured logging (console + rotating file)
@@ -29,14 +29,14 @@ from typing import Any
 def setup_logging(log_dir: str | None = None, level: int = logging.INFO) -> logging.Logger:
     """
     Configure a structured logger that writes to both console and a rotating
-    log file. Returns the top-level ``Vovy`` logger.
+    log file. Returns the top-level ``Syth`` logger.
     """
-    log_dir = log_dir or os.path.expanduser("~/.vovy/logs")
+    log_dir = log_dir or os.path.expanduser("~/.syth/logs")
     os.makedirs(log_dir, exist_ok=True)
 
-    log_file = os.path.join(log_dir, f"vovy-{datetime.now().strftime('%Y-%m-%d')}.log")
+    log_file = os.path.join(log_dir, f"syth-{datetime.now().strftime('%Y-%m-%d')}.log")
 
-    logger = logging.getLogger("Vovy")
+    logger = logging.getLogger("Syth")
     logger.setLevel(level)
     logger.handlers.clear()  # avoid duplicate handlers on re-init
 
@@ -75,7 +75,7 @@ def check_macos_permissions(logger: logging.Logger | None = None) -> dict[str, b
     errors with remediation instructions.
     """
     if logger is None:
-        logger = logging.getLogger("Vovy")
+        logger = logging.getLogger("Syth")
 
     permissions: dict[str, bool] = {
         "accessibility": False,
@@ -133,7 +133,7 @@ def check_macos_permissions(logger: logging.Logger | None = None) -> dict[str, b
         if not is_trusted:
             logger.error(
                 "macOS Accessibility permission is NOT granted. "
-                "Vovy needs Accessibility permission to control the mouse and keyboard. "
+                "Syth needs Accessibility permission to control the mouse and keyboard. "
                 "Open System Settings → Privacy & Security → Accessibility and add this app/Python."
             )
     except Exception as exc:
@@ -151,7 +151,7 @@ def check_macos_permissions(logger: logging.Logger | None = None) -> dict[str, b
         if not has_sr:
             logger.error(
                 "macOS Screen Recording permission is NOT granted. "
-                "Vovy needs Screen Recording permission to capture the screen. "
+                "Syth needs Screen Recording permission to capture the screen. "
                 "Open System Settings → Privacy & Security → Screen Recording "
                 "and enable Terminal / Python / this app."
             )

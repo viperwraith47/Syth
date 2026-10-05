@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# build.sh — Vovy macOS desktop agent build & run
+# build.sh — Syth macOS desktop agent build & run
 # Made by Viperwraith47 — https://github.com/viperwraith47
 set -euo pipefail
 
-APP_NAME="${APP_NAME:-Vovy}"
+APP_NAME="${APP_NAME:-Syth}"
 CONFIGURATION="${CONFIGURATION:-Debug}"
 OPEN_APP="${OPEN_APP:-1}"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
@@ -77,7 +77,7 @@ fi
 # ── Run the application ─────────────────────────────────────────
 if [ "$OPEN_APP" = "1" ]; then
     echo ""
-    echo "→ Launching Vovy…"
+    echo "→ Launching Syth…"
     echo "  • Apple Glass UI will appear with a floating orb"
     echo "  • Move mouse to top-left corner to stop the vision loop"
     echo "  • Press Ctrl+C in terminal to exit"

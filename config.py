@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-config.py — Centralized configuration for Vovy.
+config.py — Centralized configuration for Syth.
 
 Manages API endpoints, model selection, capture dimensions, and safety
 settings. All configuration is data-driven via dataclasses so that
@@ -98,7 +98,7 @@ class VisionConfig:
 
     # Default model slug (must exist in AVAILABLE_MODELS)
     default_model: str = field(
-        default_factory=lambda: os.environ.get("VOVY_DEFAULT_MODEL", "llama-3.2-vision")
+        default_factory=lambda: os.environ.get("SYTH_DEFAULT_MODEL", "llama-3.2-vision")
     )
 
     # Request parameters
@@ -111,7 +111,7 @@ class VisionConfig:
 
     # System prompt — instructs the LLM to return structured JSON actions
     system_prompt: str = (
-        "You are Vovy, a desktop automation agent with Apple Glass UI. "
+        "You are Syth, a desktop automation agent with Apple Glass UI. "
         "You receive screen captures and return structured JSON actions to control the mouse, "
         "keyboard, and invoke system tools. "
         "Available tools: view_file, list_directory, execute_command, get_mouse_position, "
@@ -218,19 +218,19 @@ class AppConfig:
     ui: UIConfig = field(default_factory=UIConfig)
 
     # App metadata
-    app_name: str = "Vovy"
+    app_name: str = "Syth"
     version: str = "1.0.0"
     author: str = "Viperwraith47"
     author_url: str = "https://github.com/viperwraith47"
 
     # Log file path
     log_dir: str = field(
-        default_factory=lambda: os.path.expanduser("~/.vovy/logs")
+        default_factory=lambda: os.path.expanduser("~/.syth/logs")
     )
 
     # State directory
     state_dir: str = field(
-        default_factory=lambda: os.path.expanduser("~/.vovy")
+        default_factory=lambda: os.path.expanduser("~/.syth")
     )
 
     def ensure_directories(self) -> None:

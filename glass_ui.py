@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-glass_ui.py — Apple Glass UI for Vovy.
+glass_ui.py — Apple Glass UI for Syth.
 
 Implements absolute glassmorphism in Python (PySide6):
   • Completely transparent background panel (you see the blurred desktop
@@ -137,7 +137,7 @@ class BlurManager:
     """
 
     def __init__(self, logger: Optional[logging.Logger] = None):
-        self._logger = logger or logging.getLogger("Vovy.UI.Blur")
+        self._logger = logger or logging.getLogger("Syth.UI.Blur")
         self._cache: dict[tuple[int, int, int, int], tuple[QPixmap, float]] = {}
         self._cache_ttl = 0.3  # seconds
 
@@ -231,7 +231,7 @@ class GlassPanel(QWidget):
         logger: Optional[logging.Logger] = None,
     ):
         super().__init__(parent)
-        self._logger = logger or logging.getLogger("Vovy.UI.GlassPanel")
+        self._logger = logger or logging.getLogger("Syth.UI.GlassPanel")
 
         # Glass properties
         self._corner_radius = corner_radius
@@ -646,7 +646,7 @@ class OrbWidget(QWidget):
         logger: Optional[logging.Logger] = None,
     ):
         super().__init__(parent)
-        self._logger = logger or logging.getLogger("Vovy.UI.Orb")
+        self._logger = logger or logging.getLogger("Syth.UI.Orb")
         self._config = config.ui
 
         # Orb geometry
@@ -909,7 +909,7 @@ class StatusPanel(GlassPanel):
     The main Apple Glass status panel.
 
     Contains:
-      • App title ("Vovy")
+      • App title ("Syth")
       • Status indicator (glowing dot)
       • Current model display
       • Stats (iterations, API calls, errors)
@@ -926,7 +926,7 @@ class StatusPanel(GlassPanel):
         logger: Optional[logging.Logger] = None,
         parent: Optional[QWidget] = None,
     ):
-        self._logger = logger or logging.getLogger("Vovy.UI.StatusPanel")
+        self._logger = logger or logging.getLogger("Syth.UI.StatusPanel")
         self._app_config = app_config
         self._vision_agent = vision_agent
         self._tool_registry = tool_registry
@@ -954,7 +954,7 @@ class StatusPanel(GlassPanel):
         header.setContentsMargins(0, 0, 0, 0)
 
         # App title
-        self._title_label = QLabel("Vovy")
+        self._title_label = QLabel("Syth")
         title_font = QFont(".AppleSystemUIFont" if sys_platform_darwin() else "Segoe UI", 20, QFont.Weight.DemiBold)
         title_font.setStyleStrategy(QFont.StyleStrategy.PreferAntialias)
         self._title_label.setFont(title_font)
@@ -1120,7 +1120,7 @@ class AppleGlassWindow(QMainWindow):
         logger: Optional[logging.Logger] = None,
     ):
         super().__init__()
-        self._logger = logger or logging.getLogger("Vovy.UI.Window")
+        self._logger = logger or logging.getLogger("Syth.UI.Window")
         self._app_config = app_config
         self._vision_agent = vision_agent
         self._tool_registry = tool_registry
@@ -1220,7 +1220,7 @@ class TkGlassUI:
     """
 
     def __init__(self, app_config: Any, vision_agent: Any, tool_registry: Any, logger: Optional[logging.Logger] = None):
-        self._logger = logger or logging.getLogger("Vovy.UI.Fallback")
+        self._logger = logger or logging.getLogger("Syth.UI.Fallback")
         self._app_config = app_config
         self._vision_agent = vision_agent
         self._tool_registry = tool_registry
@@ -1230,7 +1230,7 @@ class TkGlassUI:
     def show(self) -> None:
         """Show the fallback window."""
         self._root = tk.Tk()
-        self._root.title("Vovy")
+        self._root.title("Syth")
         self._root.geometry("360x220")
         self._root.configure(bg="black")
 
@@ -1251,10 +1251,10 @@ class TkGlassUI:
         frame = tk.Frame(self._root, bg="", height=200)
         frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
-        tk.Label(frame, text="Vovy", font=("SF Pro", 22, "bold"),
+        tk.Label(frame, text="Syth", font=("SF Pro", 22, "bold"),
                  fg="white", bg="").pack(pady=(0, 10))
 
-        self._status_label = tk.Label(frame, text="Vovy — Apple Glass UI",
+        self._status_label = tk.Label(frame, text="Syth — Apple Glass UI",
                                        font=("SF Pro", 11), fg="rgba(255,255,255,150)", bg="")
         self._status_label.pack(pady=(0, 10))
 
